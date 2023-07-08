@@ -1,0 +1,58 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<graphics.h>
+#include<conio.h>
+#include<time.h>
+#include<mmsystem.h>
+#pragma comment(lib,"winmm.lib")
+ 
+ 
+ 
+ 
+typedef struct Node
+{
+	int x;
+	int y;
+	struct Node *pnext;
+}NODE;
+ 
+#define WINDOW_WIDTH 1024
+#define WINDOW_HEIGHT 680
+#define WIDTH 480
+ 
+//我机图片尺寸
+#define pw 86
+#define ph 82
+ 
+//敌机图片尺寸
+#define aw 70
+#define ah 70
+ 
+#define boss1w 192
+#define boss1h 290
+ 
+ 
+//敌机重出现的y坐标
+#define APStart -ah-20
+ 
+ 
+ 
+ 
+ 
+NODE *p_bullet = NULL;
+//MyPlane
+NODE *p_MP = NULL;
+//AttackPlane
+NODE* p_AP = NULL;
+//子弹时间差
+NODE* p_AP2 = NULL;
+DWORD b1, b2, b3, b4, b5, b6;
+ 
+IMAGE i_MP,i_MPS,i_AP,i_APS;
+IMAGE i_backeve, i_backxing, i_backduicheng, i_backguan,i_backcontrol,i_backgo;
+IMAGE i_boss1_1, i_boss1_1S, i_boss1_2, i_boss1_2S;
+ 
+//backxing的左右移动
+int left = (WINDOW_WIDTH / 2 - WIDTH / 2);
+//分数
